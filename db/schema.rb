@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_045542) do
+ActiveRecord::Schema.define(version: 2020_04_20_063638) do
+
+  create_table "menu_items", force: :cascade do |t|
+    t.integer "menu_id"
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+  end
+
+  create_table "menuitems", force: :cascade do |t|
+    t.integer "menu_id"
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+  end
 
   create_table "menus", force: :cascade do |t|
     t.string "name"
