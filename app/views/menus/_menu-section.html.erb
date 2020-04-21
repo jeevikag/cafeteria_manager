@@ -1,0 +1,12 @@
+<section class="MenuSection">
+   <ul class="Menu-UnorderedList">
+      <% Menu.all.each do |menu| %>
+        <li class="MenuItem">
+          <div class="MenuItem-container">
+           <%= menu.name %>:
+            <h3 class="Link-Item"><%= link_to "click here", new_menuitems_path %></h3>
+          </div>
+        </li>
+       <% end %>
+    </ul>
+</section>

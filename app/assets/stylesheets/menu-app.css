@@ -1,0 +1,60 @@
+.MenuPage-title{
+  font-size: 48px;
+  line-height: 1.6;
+  font-weight: 600px;
+  color: black;
+  margin-bottom: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Add-Menu{
+  height: 38px;
+  align-items: stretch;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.AddMenu-text{
+  padding: 6px 12px;
+  font-size: 22px;
+  color: #453c52;
+  border: 1px solid #BFB8CC;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+.MenuSection{
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.MenuItem{
+  font-size: 26px;
+  color: #453C52;
+}
+
+.MenuItem-container{
+font-size:40px;
+display: flex;
+
+}
+
+.Menu-UnorderedList{
+  margin-top: 32px;
+  list-style-type: none;
+}
+
+.AddMenu-button{
+  font-size: 22px;
+  color: white;
+  background-color: #48BB78;
+  padding: 6px 22px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Link-Item{
+  margin-left: 20px;
+  display: flex;
+}

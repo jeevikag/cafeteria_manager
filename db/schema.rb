@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_063638) do
+ActiveRecord::Schema.define(version: 2020_04_20_111917) do
 
   create_table "menu_items", force: :cascade do |t|
     t.integer "menu_id"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_04_20_063638) do
 
   create_table "menus", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.bigint "phone"
+    t.text "address"
+    t.string "password_digest"
+    t.string "role"
   end
 
 end

@@ -1,1 +1,10 @@
-<h1>Welcome to the cafeteria manager Menu</h1>
+<article>
+    <h1 class="MenuPage-title">
+      My Menu-List
+    </h1>
+    <%= form_with(url: "/menus", method: "post", class: "Add-Menu") do %>
+        <%= text_field_tag("name","",placeholder: "Type here",class: "AddMenu-text")%>
+         <%= button_tag("Add",type: "submit",class: "AddMenu-button")%>
+    <% end %>
+       <%= render partial: "menu-section"  %>
+</article>

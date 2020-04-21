@@ -1,0 +1,30 @@
+.Home-Title{
+  color:blueviolet;
+  font-size: 60px;
+  font-style: bold;
+  text-align: center;
+}
+.nline{
+    word-wrap: break-word;
+}
+.Home-Text{
+  color:brown;
+  font-size: 50px;
+  font-style: italic;
+  align-content: stretch;
+}
+
+.Body{
+  font-family: OpenSans,sans-serif;
+  max-width: 600px;
+  margin:0 auto;
+  margin-top: 32px;
+}
+.HomeTitle{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.HomeAuthentication{
+  font-size: 20px;
+  margin-bottom: 30px;
+}
