@@ -1,6 +1,6 @@
 <article>
 <h1 class="MenuItem-Page">Welcome to the menuitems page</h1>
-<% if @menuitem %>
+<% if @menuitems %>
 <p>The Menu you are in is:<%= Menuitem.menu_id%></p>
 <% end %>
 <%= form_with(url: "/menuitems", method: "post", class: "Add-Menu") do %>
@@ -11,4 +11,5 @@
     <%= button_tag("Add",type: "submit",class: "AddMenu-button")%>
 <% end %>
 <%= render partial: "menuitem-section"  %>
+
 </article>

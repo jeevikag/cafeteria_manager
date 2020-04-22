@@ -35,8 +35,8 @@
 }
 
 .MenuItem-container{
-font-size:40px;
-display: flex;
+   font-size:40px;
+   display: inline-flex
 
 }
 
@@ -56,7 +56,7 @@ display: flex;
 
 .Link-Item{
   margin-left: 20px;
-  display: flex;
+  margin-top: auto;
 }
 
 .MenuItem-Page{
@@ -90,4 +90,32 @@ display: flex;
   display: flex;
   margin-left:20px;
   font-size:20px;
+}
+
+.AddCart-button{
+  font-size: 15px;
+  color: white;
+  background-color: chocolate;
+  align-content: right;
+  margin-left: auto;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.AddCart-button{
+  font-size: 20px;
+  color: white;
+  background-color: #48BB78;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+}
+
+.MenuItem-delete{
+
+  margin-left: 20px;
+}
+
+.MenuItem-delete > img{
+  width: 16px;
 }

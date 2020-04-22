@@ -27,4 +27,17 @@
 .HomeAuthentication{
   font-size: 20px;
   margin-bottom: 30px;
+
+}
+
+.Owner-Page{
+  font-size: 30px;
+  text-align: left;
+
+}
+
+.Clerk-Page{
+  font-size: 30px;
+  text-align: right;
+  margin-left: auto;
 }

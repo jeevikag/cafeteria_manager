@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
       user_id: @current_user.id,
     )
     new_order.save!
-    redirect_to orderitems_path
+    redirect_to orders_path
   end
 end
 =begin

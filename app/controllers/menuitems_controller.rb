@@ -1,13 +1,32 @@
 class MenuitemsController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_menu
+
   def index
-    #menuitems = current_user.menuitems
+    #@menuitems = Menu.where(menu_id: current_menu.id)
     render "index"
   end
 
   def show
     id = params[:id]
-    menuitem = Menuitem.find(id)
+    menuitem = Menuitem.of_user(current_user).find(id)
     render plain: menuitem
+  end
+
+  def new
+    menu_id = params[:menu_id]
+    name = params[:name]
+    description = params[:description]
+    price = params[:price]
+    new_menuitem = Menuitem.new(
+      menu_id: current_menu.id,
+      name: name,
+      description: description,
+      price: price,
+    )
+    if new_menuitem.save
+      redirect_to cartitems_path
+    end
   end
 
   def create
@@ -22,7 +41,7 @@ class MenuitemsController < ApplicationController
       price: price,
     )
     if new_menuitem.save
-      redirect_to menuitems_path
+      redirect_to "/menuitems"
     else
       flash[:error] = new_menuitem.errors.full_messages.join(", ")
       redirect_to menuitems_path
@@ -32,7 +51,7 @@ class MenuitemsController < ApplicationController
   def update
     id = params[:id]
     name = params[:name]
-    menuitem = Menuitem.find(id)
+    menuitem = Menuitem.of_user(current_menu).find(id)
     menuitem.name = name
     menuitem.save
     redirect_to menuitems_path
@@ -40,7 +59,7 @@ class MenuitemsController < ApplicationController
 
   def destroy
     id = params[:id]
-    menuitem = Menuitem.find(id)
+    menuitem = Menuitem.of_user(current_menu).find(id)
     menuitem.destroy
     redirect_to todos_path
   end

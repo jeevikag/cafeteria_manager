@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  #skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_menu
 
   def new
     render "users/new"
@@ -12,6 +13,8 @@ class UsersController < ApplicationController
       phone: params[:phone],
       address: params[:address],
       password: params[:password],
+      role: params[:role],
+
     )
     if new_user.save
       redirect_to new_sessions_path

@@ -5,6 +5,9 @@
           <div class="MenuItem-container">
            <%= menu.name %>:
             <h3 class="Link-Item"><%= link_to "click here", new_menuitems_path %></h3>
+           <%= form_with(url: "/menus/#{menu.id}", method: "delete") do %>
+              <%= image_submit_tag("trash.svg",class: "MenuItem-delete")%>
+          <% end %>
           </div>
         </li>
        <% end %>

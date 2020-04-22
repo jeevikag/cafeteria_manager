@@ -8,6 +8,9 @@
           description: <%= menuitem.description %><br>
           Price: $<%= menuitem.price %>
         </div>
+         <%= form_with(url: "/menuitems/cart", method: "post") do %>
+             <%= button_tag("Add_TO_CART",type: "submit",class: "AddCart-button")%>
+         <% end %>
       </div>
     </div>
     <% end %>
