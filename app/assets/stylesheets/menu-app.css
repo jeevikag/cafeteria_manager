@@ -58,3 +58,36 @@ display: flex;
   margin-left: 20px;
   display: flex;
 }
+
+.MenuItem-Page{
+  text-align: center;
+  color: green;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.fmenu {
+    float: left;
+    width: 33.33333%;
+}
+
+.fItem {
+    position: relative;
+    display: flex;
+    margin-bottom: 0.75rem;
+    border-radius: 0.25rem;
+    border: 0.5px solid rgba(0,0,0,0.125);
+}
+
+
+
+.Item-Text{
+  display: flex;
+  margin-left:20px;
+  font-size:20px;
+}

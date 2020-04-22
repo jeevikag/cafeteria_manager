@@ -1,0 +1,14 @@
+<div class="container">
+ <% Menuitem.all.each do |menuitem| %>
+   <div class="fmenu">
+      <div class="fItem">
+          <%= image_tag("coffee.jpg", width: '100px')  %>
+        <div class="Item-Text">
+          Item name: <%= menuitem.name %><br>
+          description: <%= menuitem.description %><br>
+          Price: $<%= menuitem.price %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>

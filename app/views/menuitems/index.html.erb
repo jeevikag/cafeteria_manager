@@ -1,1 +1,14 @@
-<h1>Welcome to the menuitems page</h1>
+<article>
+<h1 class="MenuItem-Page">Welcome to the menuitems page</h1>
+<% if @menuitem %>
+<p>The Menu you are in is:<%= Menuitem.menu_id%></p>
+<% end %>
+<%= form_with(url: "/menuitems", method: "post", class: "Add-Menu") do %>
+    <%= text_field_tag("menu_id","",placeholder: "Enter Menu-Id here",class: "AddMenu-text")%>
+    <%= text_field_tag("name","",placeholder: "Enter Item-Name here",class: "AddMenu-text")%>
+    <%= text_field_tag("description","",placeholder: "Enter Description here",class: "AddMenu-text")%>
+    <%= text_field_tag("price","",placeholder: "Enter Price of an Item here",class: "AddMenu-text")%>
+    <%= button_tag("Add",type: "submit",class: "AddMenu-button")%>
+<% end %>
+<%= render partial: "menuitem-section"  %>
+</article>

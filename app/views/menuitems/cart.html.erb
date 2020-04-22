@@ -1,0 +1,32 @@
+<section class="Cart">
+  <h1 class="Cart-title"> Items in cart: </h1>
+  <ul class="Menu-items">
+    <% if @current_user.cart!=[] %>
+        <li class="Menu-item">
+          <p align="left" class="MenuItem-nameHead">Item-name </p>
+          <p align="right" class="MenuItem-priceHead">Price </p>
+          <p align="center" class="MenuItem-quantityHead">Quantity </p>
+        </li>
+      <% @id_quantity.each do |item,quantity| %>
+        <% if quantity and quantity>0 %>
+        <li class="Menu-item">
+            <p align="left" class="MenuItem-name"> <%= MenuItem.find(item).name%> </p>
+            <p align="right" class="MenuItem-price"> <%= MenuItem.find(item).price%> </p>
+            <p align="right" class="MenuItem-quantity"> <%= quantity%> </p>
+
+        </li>
+        <% end %>
+      <% end %>
+    <section class="Menu-itemsTotal">
+        <h1 class="Cart-total">  Total Cart Value: <h1>
+        <h1 class="Cart-totalValue"> <%= MenuItem.get_cart_value(@id_quantity)%>
+    </section>
+    </ul>
+    <%= form_with(url: "/orders", method: "POST",class: "AddOrder") do %>
+      <%= hidden_field_tag "value",MenuItem.get_cart_value(@id_quantity)%>
+      <%= submit_tag "Place Order", class: "AddOrder-button"%>
+    <% end %>
+  <% else %>
+    <h1 class= "Cart-total"> Cart is empty! Go back and add your favorite items </h1>
+  <% end %>
+  <%= submit_tag "Go Back", class: "Back" ,onclick:"location.href='/menu_items'"%>
