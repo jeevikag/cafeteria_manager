@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 2020_04_22_034149) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "phone"
+    t.bigint "phone"
     t.text "address"
     t.string "password_digest"
     t.string "role"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cart"

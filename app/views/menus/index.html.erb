@@ -2,13 +2,27 @@
     <h1 class="MenuPage-title">
        Menu-List
     </h1>
-
-
-    <%= form_with(url: "/menus", method: "post", class: "Add-Menu") do %>
+<% if @current_user %>
+   <% if @current_user.role == "" %>
+    <p>Welcome to the </p><%= @current_user.name %>
+     <%= form_with(url: "/menus", method: "post", class: "Add-Menu") do %>
         <%= text_field_tag("name","",placeholder: "Type here",class: "AddMenu-text")%>
          <%= button_tag("Add",type: "submit",class: "AddMenu-button")%>
-    <% end %>
+     <% end %>
 
 
        <%= render partial: "menu-section"  %>
+   <% end %>
+  <% if @current_user.role == "customer" %>
+       <p>Welcome to the </p> <%=@current_user.role%>
+   <% Menu.all.each do |menu| %>
+        <li class="MenuItem">
+          <div class="MenuItem-container">
+               <%= menu.name %>:
+              <h3 class="Link-Item"><%= link_to "click here", new_menuitems_path %></h3>
+          </div>
+        </li>
+   <% end %>
+  <% end %>
+<% end %>
 </article>

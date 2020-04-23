@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   #get "/menuitems/cart", to: "menuitems#cart", as: :new_cartitems
   post "/menuitems/cart", to: "menuitems#new", as: :cartitems
+  delete "/exit" => "menusessions#destroy", as: :destroy_menusession
+  delete "/signout" => "sessions#destroy", as: :destroy_session
   resources :menus
   resources :menuitems
+  resources :users
 end

@@ -1,5 +1,4 @@
 class MenuitemsController < ApplicationController
-  skip_before_action :ensure_user_logged_in
   skip_before_action :ensure_menu
 
   def index
@@ -9,7 +8,7 @@ class MenuitemsController < ApplicationController
 
   def show
     id = params[:id]
-    menuitem = Menuitem.of_user(current_user).find(id)
+    menuitem = Menuitem.of_menu(current_menu).find(id)
     render plain: menuitem
   end
 
@@ -51,7 +50,7 @@ class MenuitemsController < ApplicationController
   def update
     id = params[:id]
     name = params[:name]
-    menuitem = Menuitem.of_user(current_menu).find(id)
+    menuitem = Menuitem.of_menu(current_menu).find(id)
     menuitem.name = name
     menuitem.save
     redirect_to menuitems_path
@@ -59,8 +58,8 @@ class MenuitemsController < ApplicationController
 
   def destroy
     id = params[:id]
-    menuitem = Menuitem.of_user(current_menu).find(id)
+    menuitem = Menuitem.of_menu(current_menu).find(id)
     menuitem.destroy
-    redirect_to todos_path
+    redirect_to menuitems_path
   end
 end

@@ -41,3 +41,35 @@
   text-align: right;
   margin-left: auto;
 }
+
+.UserHeader{
+  padding: 10px;
+  background-color: lavender;
+  font-size: 25px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flash-msg{
+  color: darkred;
+  margin-bottom: 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.flash-notice{
+  color: darkgreen;
+  margin-bottom: 20px;
+  font-size: 20px;
+  margin-top: 25px;
+}
+
+.MenuHeader{
+  padding: 10px;
+  background-color: lavender;
+  font-size: 25px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}

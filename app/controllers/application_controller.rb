@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_menu
     unless current_menu
-      redirect_to "/"
+      redirect_to "/menus"
     end
   end
 
@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
 
   def current_menu
     return @current_menu if @current_menu
+
     current_menu_id = session[:current_menu_id]
     if current_menu_id
       @current_menu = Menu.find(current_menu_id)

@@ -3,6 +3,11 @@
 
 <section class="UsersNew">
   <%= form_with url: users_path do |form| %>
+  <p style="color:red;">*note: Please type your role as "customer" to sign-up</p>
+    <div class="Form-Section">
+      <p class="FormInput-label">Role: </p>
+      <%= form.text_field :role, class: "Form-Input"%>
+    </div>
     <div class="Form-Section">
       <p class="FormInput-label">Name: </p>
       <%= form.text_field :name, class: "Form-Input"%>
