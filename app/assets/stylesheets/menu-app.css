@@ -62,6 +62,7 @@
 .MenuItem-Page{
   text-align: center;
   color: green;
+  font-size: 40px;
 }
 
 .container {
@@ -73,7 +74,8 @@
 
 .fmenu {
     float: left;
-    width: 33.33333%;
+    margin-left: 60px;
+    width: auto;
 }
 
 .fItem {
@@ -90,6 +92,7 @@
   display: flex;
   margin-left:20px;
   font-size:20px;
+
 }
 
 .AddCart-button{
@@ -111,11 +114,20 @@
 
 }
 
-.MenuItem-delete{
+.Menu-delete{
 
   margin-left: 20px;
 }
 
-.MenuItem-delete > img{
+.Menu-delete > img{
   width: 16px;
+}
+
+.Item-things{
+  display: inline-block;
+}
+
+.MenuItem-delete{
+  margin-left: 150px;
+  width: 40px;
 }

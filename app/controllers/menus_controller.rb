@@ -1,6 +1,4 @@
 class MenusController < ApplicationController
-  skip_before_action :ensure_menu
-
   def index
     render "menus/index"
   end
@@ -13,8 +11,10 @@ class MenusController < ApplicationController
 
   def show
     id = params[:id]
-    menu = Menu.of_user(current_user).find(id)
-    #render "todo"
+    session[:current_menu_id] = id
+    menu = Menu.find(id)
+    #render "menu_item", locals: { menu: menu }
+
     render plain: menu.display
   end
 

@@ -11,7 +11,7 @@
 
   <body>
   <% if @current_user %>
-    <p class="UserHeader" >Welcome <%= @current_user.role %>!
+    <p class="UserHeader" >Welcome <%= @current_user.role %>-<%= @current_user.name %>!
     <%= link_to "Sign Out", destroy_session_path, method: "delete" %>
     </p>
   <% end %>
@@ -23,6 +23,23 @@
     <% if flash[:notice] %>
       <p class="flash-notice"> <%= flash[:notice] %> </p>
     <% end %>
+
+
+    <% if @current_menu %>
+    <p class="MenuHeader" >Welcome To <%= @current_menu.name %>!
+    <%= link_to "Exit", destroy_menusession_path, method: "delete" %>
+    </p>
+
+    <% if flash[:error] %>
+      <p class="flash-msg"> <%= flash[:error] %> </p>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <p class="flash-notice"> <%= flash[:notice] %> </p>
+    <% end %>
+  <% end %>
+
+
     <%= yield %>
   </body>
 </html>

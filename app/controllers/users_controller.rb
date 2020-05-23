@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
-  skip_before_action :ensure_menu
 
   def new
     render "users/new"
@@ -23,5 +22,12 @@ class UsersController < ApplicationController
       flash[:error] = new_user.errors.full_messages.join(", ")
       redirect_to "/users/new"
     end
+  end
+
+  def destroy
+    id = params[:id]
+    user = User.all.find(id)
+    user.destroy
+    redirect_to users_path
   end
 end
