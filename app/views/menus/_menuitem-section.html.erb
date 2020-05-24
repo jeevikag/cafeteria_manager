@@ -1,5 +1,6 @@
 <div class="container">
- <% Menuitem.all.each do |menuitem| %>
+
+ <% menu.menuitems.all.each do |menuitem| %>
    <div class="fmenu">
       <div class="fItem">
           <%= image_tag("coffee.jpg", width: '100px')  %>
@@ -9,11 +10,11 @@
           Price: $<%= menuitem.price %>
           </div class="Item-things">
             <% if @current_user.role == "customer" %>
-              <%= form_with(url: "/menuitems/cart", method: "post") do %>
+              <%= form_with(url: "/orders", method: "post") do %>
                   <%= button_tag("Add_TO_CART",type: "submit",class: "AddCart-button")%>
               <% end %>
             <% end %>
-            <% if @current_user.role == "" %>
+            <% if @current_user.role == "owner" %>
               <%= form_with(url: "/menuitems/#{menuitem.id}", method: "delete") do %>
                   <%= image_submit_tag("trash.svg",class: "MenuItem-delete")%>
               <% end %>
@@ -21,4 +22,5 @@
          </div>
     </div>
     <% end %>
+
 </div>

@@ -1,7 +1,5 @@
 class MenuitemsController < ApplicationController
-
   def index
-    render "index"
   end
 
   def show
@@ -10,40 +8,23 @@ class MenuitemsController < ApplicationController
   end
 
   def new
-    menu_id = params[:menu_id]
-    menuitem_id = params[:menuitem_id]
-    name = params[:name]
-    description = params[:description]
-    price = params[:price]
-    new_menuitem = Menuitem.new(
-      menu_id: current_menu.id,
-      menuitem_id: menuitem_id,
-      name: name,
-      description: description,
-      price: price,
-    )
-    if new_menuitem.save
-      redirect_to cartitems_path
-    end
   end
 
   def create
-    name = params[:name]
-    description = params[:description]
-    price = params[:price]
-    menuitem_id = params[:menuitem_id]
-    new_menuitem = Menuitem.new(
-      menu_id: session[:current_menu_id],
-      menuitem_id: menuitem_id,
-      name: name,
-      description: description,
-      price: price,
-    )
+    ensure_owner_logged_in
+
+    #menu = Menu.find(params[:id])
+    menu_id = session[:current_menu_id]
+
+    new_menuitem = Menuitem.new(name: params[:name],
+                                description: params[:description],
+                                price: params[:price],
+                                menu_id: menu_id)
     if new_menuitem.save
-      redirect_to "/menuitems"
+      flash[:success] = "#{params[:name]} added to  menu!"
+      redirect_to "menus/#{menu_id}"
     else
       flash[:error] = new_menuitem.errors.full_messages.join(", ")
-      redirect_to "/menuitems"
     end
   end
 
@@ -59,7 +40,8 @@ class MenuitemsController < ApplicationController
   def destroy
     id = params[:id]
     menuitem = Menuitem.find(id)
+    menu_id = menuitem.menu_id
     menuitem.destroy
-    redirect_to menuitems_path
+    redirect_to "menus/#{menu_id}"
   end
 end

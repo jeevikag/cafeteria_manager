@@ -1,29 +1,33 @@
 class MenusController < ApplicationController
   def index
-    render "menus/index"
   end
 
   def create
     new_menu = Menu.new(name: params[:name])
-    new_menu.save
-    redirect_to "/menus"
+
+    if new_menu.save
+      redirect_to "/menus"
+    else
+      flash[:error] = new_menu.errors.full_messages.join(", ")
+      redirect_to "/menus"
+    end
   end
 
   def show
     id = params[:id]
     session[:current_menu_id] = id
     menu = Menu.find(id)
-    #render "menu_item", locals: { menu: menu }
+    render "menu-content", locals: { menu: menu }
 
-    render plain: menu.display
+    #render "menu_item", locals: { menu: menu }
+    #@menu = Menu.find(params[:menu_id])
+    #render :show, locals: { menu: @menu }
+    #render plain: menu.display
   end
 
   def update
-    id = params[:id]
-    menu = Menu.of_user(current_user).find(id)
-    menu.name = name
-    menu.save
-    redirect_to "/menus"
+    menu = Menu.find(params[:menu_id])
+    render :update, locals: { menu: menu }
   end
 
   def destroy

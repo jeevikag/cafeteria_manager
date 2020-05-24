@@ -3,22 +3,22 @@
        Menu-List
     </h1>
 <% if @current_user %>
-   <% if @current_user.role != "customer" %>
+   <% if @current_user.role == "owner" %>
      <%= form_with(url: "/menus", method: "post", class: "Add-Menu") do %>
-        <%= text_field_tag("name","",placeholder: "Type here",class: "AddMenu-text")%>
+        <%= text_field_tag("name","",placeholder: "Add New Menu",class: "AddMenu-text")%>
          <%= button_tag("Add",type: "submit",class: "AddMenu-button")%>
      <% end %>
 
 
        <%= render partial: "menu-section"  %>
    <% end %>
-  <% if @current_user.role != "customer" %>
+  <% if @current_user.role == "customer" %>
    <% Menu.all.each do |menu| %>
         <li class="MenuItem">
           <div class="MenuItem-container">
                <%= menu.name %>:
-              <!--<h3 class="Link-Item"><%= link_to "click here", new_menuitems_path %></h3>-->
-              <h3 class="Link-Item"> <%= link_to menu.name,"menus/#{menu.id}"%> </h3>
+              <h3 class="Link-Item"><%= link_to "click here", "/menus/#{menu.id}" %></h3>
+              <!--<h3 class="Link-Item"> <%= link_to menu.name,"menus/#{menu.id}"%> </h3>-->
           </div>
         </li>
    <% end %>

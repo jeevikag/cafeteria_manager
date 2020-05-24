@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
 
   def new
-    if @current_user
+    if current_user
       redirect_to menus_path
     else
       render "home/new"
