@@ -10,7 +10,7 @@
           Price: $<%= menuitem.price %>
           </div class="Item-things">
             <% if @current_user.role == "customer" %>
-              <%= form_with(url: "/orders", method: "post") do %>
+              <%= form_with(url: "/cart", method: "post") do %>
                   <%= button_tag("Add_TO_CART",type: "submit",class: "AddCart-button")%>
               <% end %>
             <% end %>

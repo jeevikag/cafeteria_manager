@@ -7,9 +7,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @id = params[:id]
-    @order_items = OrderItem.ordered_items(@id)
-    render plain: "These are the lists"
   end
 
   def create
@@ -19,7 +16,7 @@ class OrdersController < ApplicationController
       success: true,
     )
     new_order.save!
-    redirect_to orders_path
+    redirect_to "menus/#{session[:current_menu_id]}"
   end
 
   def update

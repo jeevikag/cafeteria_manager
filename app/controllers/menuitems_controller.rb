@@ -8,6 +8,7 @@ class MenuitemsController < ApplicationController
   end
 
   def new
+    render "cart"
   end
 
   def create

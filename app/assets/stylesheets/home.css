@@ -73,3 +73,22 @@
   display: flex;
   justify-content: space-between;
 }
+
+.MenusHeader{
+   overflow: hidden;
+  background-color: #333;
+  font-size: 25px;
+
+}
+.MenusHeader a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.MenusHeader a:hover {
+  background-color: #ddd;
+  color: black;
+}

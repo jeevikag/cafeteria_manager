@@ -14,6 +14,13 @@
     <p class="UserHeader" >Welcome <%= @current_user.role %>-<%= @current_user.name %>!
     <%= link_to "Sign Out", destroy_session_path, method: "delete" %>
     </p>
+
+      <div class="MenusHeader">
+              <a ><%= link_to "Menus", menus_path, method: "get" %></a>
+               <a style="float:right"><%= link_to "Cart", cartitems_path, method: "post" %></a>
+              <a>Link</a>
+      </div>
+
   <% end %>
 
     <% if flash[:error] %>
@@ -25,19 +32,7 @@
     <% end %>
 
 
-    <% if @current_menu %>
-    <p class="MenuHeader" >Welcome To <%= @current_menu.name %>!
-    <%= link_to "Exit", destroy_menusession_path, method: "delete" %>
-    </p>
 
-    <% if flash[:error] %>
-      <p class="flash-msg"> <%= flash[:error] %> </p>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <p class="flash-notice"> <%= flash[:notice] %> </p>
-    <% end %>
-  <% end %>
 
 
     <%= yield %>
