@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_ownerorclerk_logged_in
+    unless current_user.role == "owner" || current_user.role == "clerk"
+      redirect_to "/"
+    end
+  end
+
   def ensure_owner_logged_in
     unless current_user.role == "owner"
       redirect_to "/"
