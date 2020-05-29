@@ -3,6 +3,10 @@
       <% Menu.all.each do |menu| %>
         <li class="MenuItem">
           <div class="MenuItem-container">
+                <%= form_with(url: "/menus/#{menu.id}", method: "put") do %>
+                      <% checked = menu.active %>
+                      <%= check_box_tag(:active, nil, checked, class: "TodoItem-checkbox", onclick: "this.form.submit()") %>
+                 <% end %>
            <%= menu.name %>:
            <h3 class="Link-Item"><%= link_to "click here", "/menus/#{menu.id}" %></h3>
            <%= form_with(url: "/menus/#{menu.id}", method: "delete") do %>

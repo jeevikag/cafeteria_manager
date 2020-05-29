@@ -1,0 +1,24 @@
+<p class = "pendingorders-title">LIST OF COMPLETED ORDERS
+  <% orders.deliveredOrders.each do |order|%>
+    <ul class = "pendingorders-order">
+      <li class = "pendingorders-order__id">OrderID: <%= order.id%></li>
+      <li class = "pendingorders-order__price"><% total_price = 0 %></li>
+      <% order.order_items.all.each do |order_item|%>
+        <ul class = "pendingorders-order__items">
+          <li class = "pendingorders-order__items-content">
+            <%= order_item.menuitem_name%>  </li>
+          <li class = "pendingorders-order__items-content"><%= order_item.menuitem_price%></li>
+          <li class = "pendingorders-order__items-content">x<%= order_item.menu_item_quantity%>
+            = <%= order_item.menu_item_quantity*order_item.menuitem_price%>
+            <% total_price = total_price + order_item.menuitem_price*order_item.menu_item_quantity%>
+          </li>
+        </ul>
+      <% end %>
+      <ul class = "pendingorders-order__date">
+        <li>Ordered Date: <%=order.date.strftime("%d/%m/%Y")%></li>
+        <li>Delivered Date: <%= order.delivered_at.strftime("%d/%m/%Y at %I:%M %p")%></li>
+      </ul>
+      <li class = "pendingorders-order__total">Total Price = <%= total_price%> </li>
+    </ul>
+  <% end %>
+</p>

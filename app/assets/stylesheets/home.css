@@ -6,6 +6,15 @@
 }
 .nline{
     word-wrap: break-word;
+
+}
+.bg{
+  background-image: url('restaurant.jpg');
+  background-repeat: no-repeat;
+height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+
 }
 .Home-Text{
   color:brown;

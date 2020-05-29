@@ -10,27 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_115432) do
+ActiveRecord::Schema.define(version: 2020_05_28_120624) do
 
   create_table "menuitems", force: :cascade do |t|
     t.integer "menuitem_id"
     t.string "name"
     t.text "description"
-    t.integer "price"
     t.integer "user_id"
-    t.bigint "menu_id"
+    t.integer "menu_id"
+    t.float "price"
+    t.boolean "active"
+    t.integer "quantity"
   end
 
   create_table "menus", force: :cascade do |t|
     t.string "name"
+    t.boolean "active"
   end
 
   create_table "order_items", force: :cascade do |t|
     t.integer "order_id"
     t.integer "menuitem_id"
     t.string "menuitem_name"
-    t.integer "menuitem_price"
     t.integer "menu_item_quantity"
+    t.float "menuitem_price"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -38,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_05_24_115432) do
     t.integer "user_id"
     t.datetime "delivered_at"
     t.boolean "success"
+    t.string "status"
+    t.integer "price"
   end
 
   create_table "users", force: :cascade do |t|

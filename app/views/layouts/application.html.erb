@@ -17,8 +17,8 @@
 
       <div class="MenusHeader">
               <a ><%= link_to "Menus", menus_path, method: "get" %></a>
-               <a style="float:right"><%= link_to "Cart", cartitems_path, method: "post" %></a>
-              <a>Link</a>
+               <a style="float:right"><%= link_to "Cart", "/order_items", method: "get" %></a>
+              <a><%= link_to "Orders", "/orders", method: "get" %></a>
       </div>
 
   <% end %>

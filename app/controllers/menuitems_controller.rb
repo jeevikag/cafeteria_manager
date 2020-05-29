@@ -1,5 +1,7 @@
 class MenuitemsController < ApplicationController
   def index
+    id = params[:id]
+    @menuitem = Menuitem.find(id)
   end
 
   def show
@@ -14,16 +16,16 @@ class MenuitemsController < ApplicationController
   def create
     ensure_owner_logged_in
 
-    #menu = Menu.find(params[:id])
     menu_id = session[:current_menu_id]
 
     new_menuitem = Menuitem.new(name: params[:name],
                                 description: params[:description],
                                 price: params[:price],
-                                menu_id: menu_id)
+                                menu_id: menu_id,
+                                menuitem_id: params[:menuitem_id])
     if new_menuitem.save
       flash[:success] = "#{params[:name]} added to  menu!"
-      redirect_to "menus/#{menu_id}"
+      redirect_to "/menus/#{menu_id}"
     else
       flash[:error] = new_menuitem.errors.full_messages.join(", ")
     end
@@ -43,6 +45,6 @@ class MenuitemsController < ApplicationController
     menuitem = Menuitem.find(id)
     menu_id = menuitem.menu_id
     menuitem.destroy
-    redirect_to "menus/#{menu_id}"
+    redirect_to "/menus/#{menu_id}"
   end
 end

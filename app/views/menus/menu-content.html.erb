@@ -4,10 +4,10 @@
   <% if @current_user.role == "owner" %>
 
      <%= form_with(url: "/menuitems", method: "post", class: "Add-Menu") do %>
-                 <%= text_field_tag("menuitem_id","",placeholder: "Enter MenuItem-Id here",class: "AddMenu-text")%>
-                 <%= text_field_tag("name","",placeholder: "Enter Item-Name here",class: "AddMenu-text")%>
-                 <%= text_field_tag("description","",placeholder: "Enter Description here",class: "AddMenu-text")%>
-                 <%= text_field_tag("price","",placeholder: "Enter Price of an Item here",class: "AddMenu-text")%>
+                 <%= text_field_tag("menuitem_id","",placeholder: "Enter MenuItem-Id here",autofocus: "autofocus",class: "AddMenu-text")%>
+                 <%= text_field_tag("name","",placeholder: "Enter Item-Name here",autofocus: "autofocus",class: "AddMenu-text")%>
+                 <%= text_field_tag("description","",placeholder: "Enter Description here",autofocus: "autofocus",class: "AddMenu-text")%>
+                 <%= text_field_tag("price","",placeholder: "Enter Price of an Item here",autofocus: "autofocus",class: "AddMenu-text")%>
                  <%= button_tag("Add",type: "submit",class: "AddMenu-button")%>
 
      <% end %>
@@ -16,7 +16,7 @@
 
 
   <% end %>
-<% if @current_user.role == "customer" %>
+<% if @current_user.role == "customer" || @current_user.role == "clerk" %>
   <%= render partial: "menuitem-section", locals: { menu: menu}  %>
 <% end %>
 <% end %>

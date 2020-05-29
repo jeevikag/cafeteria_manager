@@ -22,4 +22,11 @@ class Order < ActiveRecord::Base
     end
     total_price
   end
+
+  def self.pendingOrders
+    all.where(status: "notdelivered").order(id: :asc)
+  end
+  def self.deliveredOrders
+    all.where(status: "delivered").order(id: :asc)
+  end
 end
