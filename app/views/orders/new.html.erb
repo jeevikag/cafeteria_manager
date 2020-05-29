@@ -1,8 +1,9 @@
-<div class="finalize">
-   <%=order.date.to_s(:long_ordinal)%>
-
-   <p>Total Price = <%= order.price%> </p>
+<div class="new-order">
+  <div class="finalize">
+     <%=order.date.to_s(:long_ordinal)%>
+     <p>Total Price = <%= order.price%> </p>
+  </div>
+   <%= form_with(url: "/orders/confirm", method: "post") do%>
+    <%= button_tag("Place Order",type: "submit",class: "place-order")%>
+   <% end %>
 </div>
-<%= form_with(url: "/orders/confirm", method: "post") do%>
-    <%= button_tag("Place Order",type: "submit")%>
-<% end %>

@@ -90,12 +90,14 @@ class OrdersController < ApplicationController
     if @current_user.role == "customer" || @current_user.role == "clerk"
       order.status = "notdelivered"
       order.save
+
       session[:current_order_id] = nil
       redirect_to "/orders#index"
     else
       order.status = "delivered"
       order.delivered_at = DateTime.now
       order.save
+
       session[:current_order_id] = nil
       redirect_to menus_path
     end

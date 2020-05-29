@@ -135,3 +135,9 @@
   width: 16px;
   height: 16px;
 }
+.quantity{
+  box-sizing: border-box;
+  padding-left: 25px;
+  font-style: oblique;
+  font-size: large;
+}

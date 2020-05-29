@@ -1,9 +1,10 @@
+
 <article>
 <% if @current_user.role == "customer" || @current_user.role == "clerk" %>
     <h3>Items in cart are:</h3>
     <% OrderItem.all.each do |orderitem| %>
       <div class="Item-Text">
-
+       <% if session[:current_order_id] == orderitem.order_id %>
           Item name: <%= orderitem.menuitem_name %><br>
           Price: $<%= orderitem.menuitem_price %><br>
           Quantity: <%= orderitem.menu_item_quantity %>
@@ -11,11 +12,11 @@
            <%= form_with(url: "/order_items/#{orderitem.id}", method: "delete") do %>
                   <%= image_submit_tag("trash.svg", class: "cart-trash")%>
            <% end %>
-
+        <% end %>
 
 
       </div>
-      <hr>
+
       <% end %>
       <h3 class="Add-Item"><%= link_to "Add More Items", "/menus/#{session[:current_menu_id]}" %></h3>
       <h3 class="Add-Item"><%= link_to "Finalise", carts_path %></h3>

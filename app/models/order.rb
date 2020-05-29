@@ -29,4 +29,7 @@ class Order < ActiveRecord::Base
   def self.deliveredOrders
     all.where(status: "delivered").order(id: :asc)
   end
+  def self.allOrders
+    all.where(status: "notdelivered" || "delivered").order(id: :asc)
+  end
 end
