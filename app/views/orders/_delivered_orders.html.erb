@@ -4,7 +4,7 @@
   <% orders.deliveredOrders.each do |order|%>
     <ul class = "pendingorders-details">
       <li>OrderID: <%= order.id%></li>
-      <li><% total_price = 0 %></li>
+      <li>OrderDetails:<% total_price = 0 %></li>
       <% order.order_items.all.each do |order_item|%>
         <ul>
           <li><%= order_item.menuitem_name%>  </li>

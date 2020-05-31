@@ -49,11 +49,11 @@ outline-style: double;
 
 }
 .pendingorders-datetime{
-  text-align: right;
+  padding-left: 600px;
 }
 .pendingorders{
   background-color: darkseagreen;
-
+  font-variant: petite-caps;
 }
 .pendingorders-form{
     font-size: inherit;

@@ -1,7 +1,7 @@
 
 <article>
 <% if @current_user.role == "customer" || @current_user.role == "clerk" %>
-    <h3>Items in cart are:</h3>
+    <h1 style="font-size:50px">Items in cart are:</h1>
     <% OrderItem.all.each do |orderitem| %>
       <div class="Item-Text">
        <% if session[:current_order_id] == orderitem.order_id %>
@@ -18,7 +18,9 @@
       </div>
 
       <% end %>
+
       <h3 class="Add-Item"><%= link_to "Add More Items", "/menus/#{session[:current_menu_id]}" %></h3>
       <h3 class="Add-Item"><%= link_to "Finalise", carts_path %></h3>
+
 <% end %>
 </article>
