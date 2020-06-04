@@ -19,6 +19,7 @@
               <a ><%= link_to "Menus", menus_path, method: "get" %></a>
                <a style="float:right"><%= link_to "Cart", "/order_items", method: "get" %></a>
               <a><%= link_to "Orders", "/orders", method: "get" %></a>
+             <% if @current_user.role == "owner" %> <a ><%= link_to "Reports", "/reports", method: "get" %></a> <% end %>
       </div>
 
   <% end %>

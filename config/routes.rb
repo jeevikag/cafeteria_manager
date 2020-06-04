@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
   get "/orders", to: "orders#index"
-
+  get "/reports" => "reports#index", as: :reports
+  get "/reports/:id" => "reports#invoice", as: :invoice
   #get "/menuitems/cart", to: "menuitems#cart", as: :new_cartitems
   #post "/menuitems/cart", to: "menuitems#new", as: :cartitems
   delete "/exit" => "menusessions#destroy", as: :destroy_menusession

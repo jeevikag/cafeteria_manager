@@ -1,4 +1,6 @@
 class MenuitemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     id = params[:id]
     @menuitem = Menuitem.find(id)
