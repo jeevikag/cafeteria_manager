@@ -14,14 +14,15 @@
    <% end %>
   <% if @current_user.role == "customer" || @current_user.role == "clerk" %>
    <% Menu.all.each do |menu| %>
-        <li class="MenuItem">
+        <div class="MenuItem">
           <div class="MenuItem-container">
-
-               <%= menu.name %>:
-              <h3 class="Link-Item"><%= link_to "click here", "/menus/#{menu.id}" %></h3>
-              <!--<h3 class="Link-Item"> <%= link_to menu.name,"menus/#{menu.id}"%> </h3>-->
+                <% if menu.active %>
+                      <%= menu.name %>:
+                      <h3 class="Link-Item"><%= link_to "click here", "/menus/#{menu.id}" %></h3>
+                 <% end %>
+               
           </div>
-        </li>
+        </div>
    <% end %>
   <% end %>
 <% end %>

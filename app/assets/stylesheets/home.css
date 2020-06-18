@@ -64,10 +64,11 @@
 }
 
 .flash-msg{
-  color: darkred;
+  color: red;
   margin-bottom: 20px;
   font-size: 20px;
   margin-top: 20px;
+  text-align: center;
 }
 
 .flash-notice{
@@ -75,6 +76,7 @@
   margin-bottom: 20px;
   font-size: 20px;
   margin-top: 25px;
+  text-align: center;
 }
 
 .MenuHeader{
