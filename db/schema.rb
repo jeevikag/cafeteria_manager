@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2020_05_28_120624) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "cart"
   end
 
 end
